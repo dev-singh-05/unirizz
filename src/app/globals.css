@@ -25,6 +25,17 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
+  --color-bgDark: var(--bg-dark);
+  --color-cardDark: var(--card-dark);
+  --color-accentPurple: var(--accent-purple);
+  --color-accentPurple2: var(--accent-purple-2);
+  --color-accentPink: var(--accent-pink);
+  --color-accentMustard: var(--accent-mustard);
+  --color-rAccent: var(--r-accent);
+  --color-bgLight: var(--bg-light);
+  --color-textLight: var(--text-light);
+  --color-mutedCard: var(--muted-card);
 }
 
 :root {
