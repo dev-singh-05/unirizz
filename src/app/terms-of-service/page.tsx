@@ -51,6 +51,14 @@ export default function TermsOfServicePage() {
                             You must be at least <strong>18 years old</strong> to use UniRizz. By using the App, you represent and warrant that you are 18 years of age or older.
                         </p>
 
+                        <p className="text-foreground/80">
+                            Objectionable Content and Abuse
+
+UniRizz has zero tolerance for objectionable content, harassment, hate speech, sexual exploitation, or abusive behavior. Users who violate these rules may have their content removed or their accounts suspended or permanently banned.
+
+                        </p>
+                
+
                         <h3 className="text-xl font-semibold text-foreground mt-6 mb-4">College Affiliation</h3>
                         <p className="text-foreground/80 mb-4">UniRizz is exclusively for verified college students. You must:</p>
                         <ul className="list-disc pl-6 text-foreground/80 space-y-2">
