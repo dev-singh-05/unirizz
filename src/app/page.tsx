@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
-import { FeatureCarousel } from "@/components/feature-carousel"
+import { InfiniteCards } from "@/components/infinite-cards"
 import { FeatureGrid } from "@/components/feature-grid"
 import { CampusOnly } from "@/components/campus-only"
 import { HowItWorks } from "@/components/how-it-works"
@@ -13,7 +13,7 @@ export default function Home() {
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
       <Hero />
-      <FeatureCarousel />
+      <InfiniteCards />
       <FeatureGrid />
       <CampusOnly />
       <HowItWorks />
