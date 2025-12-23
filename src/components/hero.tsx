@@ -31,13 +31,15 @@ export function Hero() {
                                 </svg>
                                 App Store
                             </Button>
-                            <Button size="lg" variant="outline" className="h-14 px-8 cursor-pointer text-lg gap-2 border-primary/20 bg-primary/5 hover:bg-primary/10 rounded-full">
-                                <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                                    <path d="M5,20.5V3.5C5,2.91 5.34,2.5 5.75,2.5C5.96,2.5 6.17,2.6 6.32,2.79L18.96,12L6.34,21.21C6.18,21.39 5.96,21.5 5.75,21.5C5.34,21.5 5,21.1 5,20.5M7,4.87V19.13L16.8,12L7,4.87M18.82,12L19.5,12.5L20.5,13.25L21.5,14L22.5,14.75L23.5,15.5L18.82,12Z" /> {/* Placeholder path for Google Play triangular shape */}
-                                    <path d="M3 20.5v-17c0-.83.67-1.5 1.5-1.5.2 0 .4.04.58.12l10.5 7.63-2.6 1.89L4.5 3.37C4.2 3.12 3.82 2.97 3.4 3c-.77.05-1.4.67-1.4 1.45v15.1c0 .78.63 1.4 1.4 1.45.42.03.8-.12 1.1-.37l8.48-8.26 2.6 1.89-10.5 7.63c-.18.08-.38.12-.58.12-.83 0-1.5-.67-1.5-1.5z" /> {/* Better generic play triangle */}
-                                </svg>
-                                Download For Android
-                            </Button>
+                            <a href="https://drive.google.com/uc?export=download&id=1I_-k32m49njyfEqPfkcl-xPcWJOvW6YQ" target="_blank" rel="noopener noreferrer">
+                                <Button size="lg" variant="outline" className="h-14 px-8 cursor-pointer text-lg gap-2 border-primary/20 bg-primary/5 hover:bg-primary/10 rounded-full">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                        <path d="M5,20.5V3.5C5,2.91 5.34,2.5 5.75,2.5C5.96,2.5 6.17,2.6 6.32,2.79L18.96,12L6.34,21.21C6.18,21.39 5.96,21.5 5.75,21.5C5.34,21.5 5,21.1 5,20.5M7,4.87V19.13L16.8,12L7,4.87M18.82,12L19.5,12.5L20.5,13.25L21.5,14L22.5,14.75L23.5,15.5L18.82,12Z" /> {/* Placeholder path for Google Play triangular shape */}
+                                        <path d="M3 20.5v-17c0-.83.67-1.5 1.5-1.5.2 0 .4.04.58.12l10.5 7.63-2.6 1.89L4.5 3.37C4.2 3.12 3.82 2.97 3.4 3c-.77.05-1.4.67-1.4 1.45v15.1c0 .78.63 1.4 1.4 1.45.42.03.8-.12 1.1-.37l8.48-8.26 2.6 1.89-10.5 7.63c-.18.08-.38.12-.58.12-.83 0-1.5-.67-1.5-1.5z" /> {/* Better generic play triangle */}
+                                    </svg>
+                                    Download For Android
+                                </Button>
+                            </a>
                         </div>
                         <p className="text-sm text-muted-foreground mt-2">Coming soon to more campuses.</p>
                     </div>

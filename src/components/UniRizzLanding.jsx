@@ -271,7 +271,7 @@ export default function UniRizzLanding() {
                                     <span>App Store</span>
                                 </a>
                                 {/* Play Store CTA */}
-                                <a href="#" className={`flex items-center gap-3 px-6 py-3.5 rounded-full font-semibold border-2 hover:transform hover:-translate-y-1 transition-transform duration-200 w-48 justify-center ${theme === 'dark' ? 'border-[#7C2BFF] text-white bg-[#7C2BFF]/10' : 'border-[#7C2BFF] text-[#7C2BFF] bg-white'}`}>
+                                <a href="https://drive.google.com/uc?export=download&id=1I_-k32m49njyfEqPfkcl-xPcWJOvW6YQ" target="_blank" rel="noopener noreferrer" className={`flex items-center gap-3 px-6 py-3.5 rounded-full font-semibold border-2 hover:transform hover:-translate-y-1 transition-transform duration-200 w-48 justify-center ${theme === 'dark' ? 'border-[#7C2BFF] text-white bg-[#7C2BFF]/10' : 'border-[#7C2BFF] text-[#7C2BFF] bg-white'}`}>
                                     <Icons.GooglePlay className="w-6 h-6" />
                                     <span>Download For Android</span>
                                 </a>
