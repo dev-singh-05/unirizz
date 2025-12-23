@@ -96,7 +96,7 @@ export function InfiniteCards() {
     }, []);
 
     return (
-        <div className="relative w-full py-20 bg-background overflow-hidden flex flex-col items-center">
+        <div id="features" className="relative w-full py-20 bg-background overflow-hidden flex flex-col items-center">
 
             {/* Glow Background */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-600/20 blur-[120px] rounded-full pointer-events-none" />

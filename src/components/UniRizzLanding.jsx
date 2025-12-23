@@ -273,7 +273,7 @@ export default function UniRizzLanding() {
                                 {/* Play Store CTA */}
                                 <a href="#" className={`flex items-center gap-3 px-6 py-3.5 rounded-full font-semibold border-2 hover:transform hover:-translate-y-1 transition-transform duration-200 w-48 justify-center ${theme === 'dark' ? 'border-[#7C2BFF] text-white bg-[#7C2BFF]/10' : 'border-[#7C2BFF] text-[#7C2BFF] bg-white'}`}>
                                     <Icons.GooglePlay className="w-6 h-6" />
-                                    <span>Google Play</span>
+                                    <span>Download For Android</span>
                                 </a>
                             </div>
                             <p className={`text-sm font-medium opacity-70 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
