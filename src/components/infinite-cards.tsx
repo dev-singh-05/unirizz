@@ -50,9 +50,14 @@ export function InfiniteCards() {
         let scrollPos = 0;
         const speed = 3.0; // Increased speed (was 1.6)
 
-        // Dimensions
-        // Card: 350px + Gap: 32px (gap-8)
-        const cardWidth = 350 + 32;
+        const children = Array.from(scrollContainer.children) as HTMLElement[];
+        if (children.length === 0) return;
+
+        // Dynamic Dimensions based on first card
+        // Card width + Gap (32px / 2rem)
+        const itemWidth = children[0].getBoundingClientRect().width;
+        const gap = 32;
+        const cardWidth = itemWidth + gap;
         const totalWidth = cards.length * cardWidth;
 
         const animate = () => {
@@ -67,8 +72,7 @@ export function InfiniteCards() {
 
             // 2. Center Scaling Effect
             const containerRect = containerRef.current.getBoundingClientRect();
-            const containerCenter = containerRect.left + containerRect.width / 2 + 60; // Shift center to right
-            const children = Array.from(scrollContainer.children) as HTMLElement[];
+            const containerCenter = containerRect.left + containerRect.width / 2; // Removed +60 offset for better mobile centering
 
             children.forEach((child) => {
                 const childRect = child.getBoundingClientRect();
@@ -77,7 +81,7 @@ export function InfiniteCards() {
 
                 // Calculate Scale
                 // Logic: Main card is clear. Immediate side cards start blurring.
-                const maxDist = 500;
+                const maxDist = window.innerWidth < 640 ? 300 : 500; // Tighter focus on mobile
                 const scale = Math.max(0.8, 1.1 - (distFromCenter / maxDist) * 0.4);
                 const opacity = Math.max(0.7, 1 - (distFromCenter / maxDist) * 1.0); // Clearer side cards
 
@@ -93,21 +97,21 @@ export function InfiniteCards() {
         animationFrameId = requestAnimationFrame(animate);
 
         return () => cancelAnimationFrame(animationFrameId);
-    }, []);
+    }, [items]);
 
     return (
-        <div id="features" className="relative w-full py-20 bg-background overflow-hidden flex flex-col items-center">
+        <div id="features" className="relative w-full py-12 md:py-20 bg-background overflow-hidden flex flex-col items-center">
 
             {/* Glow Background */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-600/20 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[600px] h-[300px] bg-purple-600/20 blur-[120px] rounded-full pointer-events-none" />
 
             {/* Container restricted to show approx 3 cards (350*3 + gaps) */}
-            <div ref={containerRef} className="w-full max-w-[1200px] relative z-10 flex items-center justify-center h-[600px] mask-gradient">
+            <div ref={containerRef} className="w-full max-w-[1200px] relative z-10 flex items-center justify-center h-[500px] md:h-[600px] mask-gradient">
                 <div ref={scrollRef} className="flex gap-8 px-8 w-max">
                     {items.map((card, index) => (
                         <div
                             key={index}
-                            className="relative w-[350px] h-[500px] shrink-0 rounded-[30px] border border-white/10 bg-[#0a0a0b] overflow-hidden transition-transform duration-75 ease-linear shadow-2xl group"
+                            className="relative w-[80vw] xs:w-[300px] sm:w-[350px] h-[450px] md:h-[500px] shrink-0 rounded-[30px] border border-white/10 bg-[#0a0a0b] overflow-hidden transition-transform duration-75 ease-linear shadow-2xl group"
                         >
                             {/* Full Background Image */}
                             <div className="absolute inset-0 w-full h-full">

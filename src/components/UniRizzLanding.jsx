@@ -257,21 +257,21 @@ export default function UniRizzLanding() {
                     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
                         {/* Left Content */}
                         <div className="text-center lg:text-left space-y-8">
-                            <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                            <h1 className={`text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                                 UniRizz — Your Entire <span className="text-[#FFD166]">Camp</span>us, In Your Pocket.
                             </h1>
-                            <p className={`text-xl sm:text-2xl max-w-2xl mx-auto lg:mx-0 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
+                            <p className={`text-lg sm:text-2xl max-w-2xl mx-auto lg:mx-0 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
                                 Discover clubs, rate and get rated by your peers, and match with people you can actually meet in real life.
                             </p>
 
                             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                                 {/* App Store CTA */}
-                                <a href="#" className="flex items-center gap-3 px-6 py-3.5 bg-white text-black rounded-full font-semibold hover:transform hover:-translate-y-1 transition-transform duration-200 shadow-xl w-48 justify-center">
+                                <a href="#" className="flex items-center gap-3 px-6 py-3.5 bg-white text-black rounded-full font-semibold hover:transform hover:-translate-y-1 transition-transform duration-200 shadow-xl w-full sm:w-48 justify-center">
                                     <Icons.Apple className="w-6 h-6" />
                                     <span>App Store</span>
                                 </a>
                                 {/* Play Store CTA */}
-                                <a href="https://drive.google.com/uc?export=download&id=1I_-k32m49njyfEqPfkcl-xPcWJOvW6YQ" target="_blank" rel="noopener noreferrer" className={`flex items-center gap-3 px-6 py-3.5 rounded-full font-semibold border-2 hover:transform hover:-translate-y-1 transition-transform duration-200 w-48 justify-center ${theme === 'dark' ? 'border-[#7C2BFF] text-white bg-[#7C2BFF]/10' : 'border-[#7C2BFF] text-[#7C2BFF] bg-white'}`}>
+                                <a href="https://drive.google.com/uc?export=download&id=1I_-k32m49njyfEqPfkcl-xPcWJOvW6YQ" target="_blank" rel="noopener noreferrer" className={`flex items-center gap-3 px-6 py-3.5 rounded-full font-semibold border-2 hover:transform hover:-translate-y-1 transition-transform duration-200 w-full sm:w-48 justify-center ${theme === 'dark' ? 'border-[#7C2BFF] text-white bg-[#7C2BFF]/10' : 'border-[#7C2BFF] text-[#7C2BFF] bg-white'}`}>
                                     <Icons.GooglePlay className="w-6 h-6" />
                                     <span>Download For Android</span>
                                 </a>
@@ -364,7 +364,7 @@ export default function UniRizzLanding() {
                 </section>
 
                 {/* -- FEATURES GRID -- */}
-                <section id="features" className={`py-20 ${theme === 'dark' ? 'bg-[#0B0C15]' : 'bg-[#F3F4F6]'}`}>
+                <section id="features" className={`py-12 md:py-20 ${theme === 'dark' ? 'bg-[#0B0C15]' : 'bg-[#F3F4F6]'}`}>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                             {[
@@ -407,7 +407,7 @@ export default function UniRizzLanding() {
                 </section>
 
                 {/* -- HOW IT WORKS -- */}
-                <section id="how-it-works" className={`py-20 overflow-hidden ${theme === 'dark' ? 'bg-[#050614]' : 'bg-white'}`}>
+                <section id="how-it-works" className={`py-12 md:py-20 overflow-hidden ${theme === 'dark' ? 'bg-[#050614]' : 'bg-white'}`}>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
                             <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>How UniRizz Works</h2>
@@ -436,7 +436,7 @@ export default function UniRizzLanding() {
                 </section>
 
                 {/* -- PRODUCT DETAILS BLOCKS -- */}
-                <section className={`py-20 ${theme === 'dark' ? 'bg-[#0B0C15]' : 'bg-[#EEF2F7]'}`}>
+                <section className={`py-12 md:py-20 ${theme === 'dark' ? 'bg-[#0B0C15]' : 'bg-[#EEF2F7]'}`}>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
                         {/* Block 1: Clubs & Ratings */}
                         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -498,7 +498,7 @@ export default function UniRizzLanding() {
                 </section>
 
                 {/* -- FAQ ACCORDION -- */}
-                <section id="faq" className={`py-20 ${theme === 'dark' ? 'bg-[#0B0C15]' : 'bg-[#F9FAFB]'}`}>
+                <section id="faq" className={`py-12 md:py-20 ${theme === 'dark' ? 'bg-[#0B0C15]' : 'bg-[#F9FAFB]'}`}>
                     <div className="max-w-3xl mx-auto px-4">
                         <h2 className={`text-3xl font-bold mb-12 text-center ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>Frequently Asked Questions</h2>
 
