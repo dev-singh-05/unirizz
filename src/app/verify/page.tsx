@@ -8,6 +8,8 @@ import { useEffect, useState } from "react"
 const APP_CONFIG = {
     // Your Play Store app link
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.unirizz.app",
+    // Your App Store app link
+    appleStoreUrl: "https://apps.apple.com/in/app/unirizz/id6756393666",
     // Your app's package name for Android
     packageName: "com.unirizz.app",
     // Your custom URL scheme (e.g., unirizz://)
@@ -28,9 +30,6 @@ export default function VerifyPage() {
         // Create Android intent URL with Play Store fallback
         const intentUrl = `intent://verified#Intent;scheme=${APP_CONFIG.appScheme};package=${APP_CONFIG.packageName};S.browser_fallback_url=${encodeURIComponent(APP_CONFIG.playStoreUrl)};end`
 
-        // For iOS, we'd use the custom scheme directly
-        // For now, primarily targeting Android with intent fallback
-
         // Try to detect platform
         const userAgent = navigator.userAgent.toLowerCase()
         const isAndroid = userAgent.includes("android")
@@ -39,11 +38,11 @@ export default function VerifyPage() {
         if (isAndroid) {
             window.location.href = intentUrl
         } else if (isIOS) {
-            // Try custom scheme, then fall back to App Store (update URL when available)
+            // Try custom scheme, then fall back to App Store
             window.location.href = `${APP_CONFIG.appScheme}://verified`
             setTimeout(() => {
-                // If app didn't open, redirect to App Store (placeholder)
-                // window.location.href = "https://apps.apple.com/app/unirizz/id..."
+                // If app didn't open, redirect to App Store
+                window.location.href = APP_CONFIG.appleStoreUrl
             }, 2000)
         } else {
             // Desktop - redirect to Play Store

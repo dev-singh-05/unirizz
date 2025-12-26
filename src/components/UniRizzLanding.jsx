@@ -266,7 +266,7 @@ export default function UniRizzLanding() {
 
                             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                                 {/* App Store CTA */}
-                                <a href="#" className="flex items-center gap-3 px-6 py-3.5 bg-white text-black rounded-full font-semibold hover:transform hover:-translate-y-1 transition-transform duration-200 shadow-xl w-full sm:w-48 justify-center">
+                                <a href="https://apps.apple.com/in/app/unirizz/id6756393666" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-6 py-3.5 bg-white text-black rounded-full font-semibold hover:transform hover:-translate-y-1 transition-transform duration-200 shadow-xl w-full sm:w-48 justify-center">
                                     <Icons.Apple className="w-6 h-6" />
                                     <span>App Store</span>
                                 </a>

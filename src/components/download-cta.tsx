@@ -12,9 +12,11 @@ export function DownloadCTA() {
                     <Button size="lg" className="h-16 px-10 text-xl font-bold bg-white text-primary hover:bg-white/90 rounded-full shadow-2xl hover:scale-105 transition-all">
                         Google Play
                     </Button>
-                    <Button size="lg" variant="outline" className="h-16 px-10 text-xl font-bold border-white/20 text-white hover:bg-white/10 rounded-full hover:scale-105 transition-all">
-                        App Store
-                    </Button>
+                    <a href="https://apps.apple.com/in/app/unirizz/id6756393666" target="_blank" rel="noopener noreferrer">
+                        <Button size="lg" variant="outline" className="h-16 px-10 text-xl font-bold border-white/20 text-white hover:bg-white/10 rounded-full hover:scale-105 transition-all">
+                            App Store
+                        </Button>
+                    </a>
                 </div>
             </div>
         </section>

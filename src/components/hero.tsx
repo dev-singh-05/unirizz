@@ -25,12 +25,14 @@ export function Hero() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4 justify-center lg:justify-start">
-                            <Button size="lg" className="h-14 cursor-pointer px-8 text-lg gap-2 bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(109,40,217,0.3)] hover:shadow-[0_0_30px_rgba(109,40,217,0.5)] transition-all rounded-full w-full sm:w-auto">
-                                <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74 1.18 0 2.45-1.64 3.98-1.54.91.04 1.72.37 2.31.95-3.8 2.06-2.58 6.47.55 7.9-.53 1.37-1.12 2.76-1.92 4.92zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                                </svg>
-                                App Store
-                            </Button>
+                            <a href="https://apps.apple.com/in/app/unirizz/id6756393666" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                                <Button size="lg" className="h-14 cursor-pointer px-8 text-lg gap-2 bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(109,40,217,0.3)] hover:shadow-[0_0_30px_rgba(109,40,217,0.5)] transition-all rounded-full w-full sm:w-auto">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74 1.18 0 2.45-1.64 3.98-1.54.91.04 1.72.37 2.31.95-3.8 2.06-2.58 6.47.55 7.9-.53 1.37-1.12 2.76-1.92 4.92zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
+                                    </svg>
+                                    App Store
+                                </Button>
+                            </a>
                             <a href="https://drive.google.com/uc?export=download&id=1I_-k32m49njyfEqPfkcl-xPcWJOvW6YQ" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                                 <Button size="lg" variant="outline" className="h-14 px-8 cursor-pointer text-lg gap-2 border-primary/20 bg-primary/5 hover:bg-primary/10 rounded-full w-full sm:w-auto hover:transform hover:-translate-y-1 transition-all">
                                     <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
