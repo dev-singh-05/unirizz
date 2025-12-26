@@ -9,109 +9,111 @@ const cards = [
         title: "What is UniRizz?",
         description:
             "UniRizz is a campus-exclusive social platform where you join clubs, rate/get rated, and explore dating. Real connections, not random strangers.",
-        image: "/app-mockup.png",
+        image: "/assets/unirizz.png",
     },
     {
         title: "Dating",
         description:
             "Match real, meet real. Connect only with people from your campus.",
-        image: "/ui-dating.png",
+        image: "/assets/dating-v2.png",
     },
     {
         title: "Clubs",
         description:
             "Join and lead communities, plan events, and own your campus niche.",
-        image: "/ui-clubs.png",
+        image: "/assets/club.jpg",
     },
     {
         title: "Ratings",
         description:
             "See beyond profiles. Give and receive honest, fun, constructive ratings.",
-        image: "/ui-ratings.png",
+        image: "/assets/ratings.png",
     },
     {
         title: "Campus Snaps",
         description:
             "Fun, ongoing changes in college. From boring labs to fights, share any snap.",
-        image: "/app-mockup.png",
+        image: "/assets/campus-snap.jpg",
     },
 ];
 
 export function InfiniteCards() {
     const containerRef = useRef<HTMLDivElement>(null);
     const scrollRef = useRef<HTMLDivElement>(null);
-    const [items, setItems] = useState([...cards, ...cards, ...cards]); // Tripled for smoother infinite buffer
+    const duplicatedCards = [...cards, ...cards]; // No state to avoid stale data during hot reload
 
     useEffect(() => {
         const scrollContainer = scrollRef.current;
-        if (!scrollContainer || !containerRef.current) return;
+        const container = containerRef.current;
+        if (!scrollContainer || !container) return;
 
         let animationFrameId: number;
         let scrollPos = 0;
-        const speed = 3.0; // Increased speed (was 1.6)
+        const isMobile = window.innerWidth < 768;
+        const speed = isMobile ? 1.0 : 2.0;
 
         const children = Array.from(scrollContainer.children) as HTMLElement[];
         if (children.length === 0) return;
 
-        // Dynamic Dimensions based on first card
-        // Card width + Gap (32px / 2rem)
-        const itemWidth = children[0].getBoundingClientRect().width;
+        const firstChild = children[0];
+        const itemWidth = firstChild.offsetWidth;
         const gap = 32;
-        const cardWidth = itemWidth + gap;
-        const totalWidth = cards.length * cardWidth;
+        const fullItemWidth = itemWidth + gap;
+        const totalScrollWidth = cards.length * fullItemWidth;
 
         const animate = () => {
-            if (!scrollContainer || !containerRef.current) return;
+            if (!scrollContainer || !container) return;
 
-            // 1. Move Scroll
             scrollPos += speed;
-            if (scrollPos >= totalWidth) {
+            if (scrollPos >= totalScrollWidth) {
                 scrollPos = 0;
             }
-            scrollContainer.style.transform = `translateX(-${scrollPos}px)`;
 
-            // 2. Center Scaling Effect
-            const containerRect = containerRef.current.getBoundingClientRect();
-            const containerCenter = containerRect.left + containerRect.width / 2; // Removed +60 offset for better mobile centering
+            scrollContainer.style.transform = `translate3d(-${scrollPos}px, 0, 0)`;
 
-            children.forEach((child) => {
-                const childRect = child.getBoundingClientRect();
-                const childCenter = childRect.left + childRect.width / 2;
-                const distFromCenter = Math.abs(containerCenter - childCenter);
+            const containerCenter = container.offsetWidth / 2;
+            const scrollPadding = 32;
 
-                // Calculate Scale
-                // Logic: Main card is clear. Immediate side cards start blurring.
-                const maxDist = window.innerWidth < 640 ? 300 : 500; // Tighter focus on mobile
-                const scale = Math.max(0.8, 1.1 - (distFromCenter / maxDist) * 0.4);
-                const opacity = Math.max(0.7, 1 - (distFromCenter / maxDist) * 1.0); // Clearer side cards
+            for (let i = 0; i < children.length; i++) {
+                const child = children[i];
+                const childHeaderCenter = i * fullItemWidth + itemWidth / 2 + scrollPadding;
+                const childPosInContainer = childHeaderCenter - scrollPos;
+                const distFromCenter = Math.abs(containerCenter - childPosInContainer);
 
-                child.style.transform = `scale(${scale})`;
-                child.style.opacity = `${opacity}`;
-                child.style.filter = "none"; // Ensure no filter
-                child.style.zIndex = scale > 1 ? "10" : "0";
-            });
+                if (distFromCenter < 600) {
+                    const maxDist = isMobile ? 200 : 500;
+                    const scale = Math.max(0.85, 1.1 - (distFromCenter / maxDist) * 0.4);
+                    const opacity = Math.max(0.6, 1 - (distFromCenter / maxDist) * 0.9);
+
+                    child.style.transform = `scale3d(${scale}, ${scale}, 1)`;
+                    child.style.opacity = `${opacity}`;
+                    child.style.zIndex = scale > 1.05 ? "10" : "1";
+                } else {
+                    child.style.opacity = "0.5";
+                    child.style.transform = "scale3d(0.85, 0.85, 1)";
+                }
+            }
 
             animationFrameId = requestAnimationFrame(animate);
         };
 
         animationFrameId = requestAnimationFrame(animate);
-
         return () => cancelAnimationFrame(animationFrameId);
-    }, [items]);
+    }, []);
 
     return (
         <div id="features" className="relative w-full py-12 md:py-20 bg-background overflow-hidden flex flex-col items-center">
 
             {/* Glow Background */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[600px] h-[300px] bg-purple-600/20 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[600px] h-[300px] bg-purple-600/10 blur-[120px] rounded-full pointer-events-none" />
 
-            {/* Container restricted to show approx 3 cards (350*3 + gaps) */}
-            <div ref={containerRef} className="w-full max-w-[1200px] relative z-10 flex items-center justify-center h-[500px] md:h-[600px] mask-gradient">
-                <div ref={scrollRef} className="flex gap-8 px-8 w-max">
-                    {items.map((card, index) => (
+            {/* Container restricted to show approx 3 cards */}
+            <div ref={containerRef} className="w-full max-w-[1200px] relative z-10 flex items-center h-[500px] md:h-[600px] mask-gradient overflow-hidden">
+                <div ref={scrollRef} className="flex gap-8 px-8 w-max will-change-transform">
+                    {duplicatedCards.map((card, index) => (
                         <div
                             key={index}
-                            className="relative w-[80vw] xs:w-[300px] sm:w-[350px] h-[450px] md:h-[500px] shrink-0 rounded-[30px] border border-white/10 bg-[#0a0a0b] overflow-hidden transition-transform duration-75 ease-linear shadow-2xl group"
+                            className="relative w-[300px] sm:w-[350px] h-[450px] md:h-[500px] shrink-0 rounded-[30px] border border-white/10 bg-[#0a0a0b] overflow-hidden shadow-2xl group will-change-transform"
                         >
                             {/* Full Background Image */}
                             <div className="absolute inset-0 w-full h-full">
@@ -120,6 +122,7 @@ export function InfiniteCards() {
                                     alt={card.title}
                                     fill
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    sizes="350px"
                                 />
                                 {/* Strong Gradient Overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />

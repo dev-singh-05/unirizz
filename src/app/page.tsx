@@ -7,10 +7,12 @@ import { HowItWorks } from "@/components/how-it-works"
 import { DownloadCTA } from "@/components/download-cta"
 import { FAQ } from "@/components/faq"
 import { Footer } from "@/components/footer"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <ScrollReveal />
       <Navbar />
       <Hero />
       <InfiniteCards />

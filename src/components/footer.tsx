@@ -7,7 +7,7 @@ export function Footer() {
             <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center gap-6">
                 <div className="flex items-center gap-2">
                     <Image src="/logo.jpg" alt="UniRizz" width={48} height={48} className="rounded-lg" />
-                    <span className="text-2xl font-bold">Uni<span className="text-primary">Rizz</span></span>
+                    <span className="text-2xl font-bold">Uni<span className="text-primary">R</span>izz</span>
                 </div>
 
                 <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">

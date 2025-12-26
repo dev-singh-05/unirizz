@@ -36,12 +36,15 @@ export function FeatureGrid() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {features.map((feature) => (
-                        <div key={feature.title} className="flex flex-col items-center text-center p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-colors shadow-sm">
-                            <div className="p-4 rounded-full bg-primary/10 text-primary mb-6">
-                                <feature.icon className="w-8 h-8" />
+                        <div
+                            key={feature.title}
+                            className="flex flex-col items-center text-center p-8 rounded-[2rem] bg-card/30 backdrop-blur-md border border-border/50 hover:border-primary/50 hover:scale-105 hover:bg-card/50 transition-all duration-500 shadow-sm hover:shadow-xl group reveal"
+                        >
+                            <div className="p-4 rounded-3xl bg-primary/10 text-primary mb-6 transition-transform group-hover:rotate-6 group-hover:scale-110">
+                                <feature.icon className="w-10 h-10" />
                             </div>
-                            <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                            <p className="text-muted-foreground">{feature.description}</p>
+                            <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">{feature.title}</h3>
+                            <p className="text-muted-foreground leading-relaxed text-sm">{feature.description}</p>
                         </div>
                     ))}
                 </div>

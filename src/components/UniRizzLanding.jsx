@@ -37,6 +37,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 // Inline Icons to avoid external dependencies for the single file requirement
 const Icons = {
@@ -77,12 +78,11 @@ const Icons = {
 
 // -- CONSTANTS --
 const PHONE_CAROUSEL_IMAGES = [
-    { id: 1, src: "assets/phones/hero-1.png", alt: "UniRizz Logo Screen" },
-    { id: 2, src: "assets/phones/hero-2.png", alt: "UniRizz Clubs" },
-    { id: 3, src: "assets/phones/hero-3.png", alt: "UniRizz Dating" },
-    { id: 4, src: "assets/phones/hero-4.png", alt: "UniRizz Ratings" },
-    { id: 5, src: "assets/phones/hero-5.png", alt: "UniRizz Campus Snaps" },
-    { id: 6, src: "assets/phones/hero-6.png", alt: "UniRizz Campus News" },
+    { id: 1, src: "/assets/unirizz.png", alt: "UniRizz Main Screen" },
+    { id: 2, src: "/assets/club.jpg", alt: "UniRizz Clubs" },
+    { id: 3, src: "/assets/ratings.png", alt: "UniRizz Ratings" },
+    { id: 4, src: "/assets/dating.png", alt: "UniRizz Dating" },
+    { id: 5, src: "/assets/campus-snap.jpg", alt: "UniRizz Campus Snaps" },
 ];
 
 const FAQS = [
@@ -165,7 +165,7 @@ export default function UniRizzLanding() {
                      Prompt says: logo placeholder... with R highlight. I will render text logo for clarity. */}
                             </div>
                             <span className={`font-bold text-xl tracking-tight ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-                                Uni<span className="text-[#FFD166]">R</span>izz
+                                Uni<span className="text-[#7C2BFF]">R</span>izz
                             </span>
                         </a>
                     </div>
@@ -248,10 +248,10 @@ export default function UniRizzLanding() {
             <main>
                 {/* -- HERO SECTION -- */}
                 <section className="relative pt-12 pb-20 lg:pt-24 lg:pb-32 overflow-hidden">
-                    {/* Background Glows */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none z-0">
-                        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#7C2BFF] rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-pulse"></div>
-                        <div className="absolute bottom-[10%] right-[-10%] w-[400px] h-[400px] bg-[#FF68A8] rounded-full mix-blend-screen filter blur-[100px] opacity-10"></div>
+                    {/* Background Glows - Optimized for mobile */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none z-0 overflow-hidden">
+                        <div className="absolute top-[-5%] left-[-5%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#7C2BFF] rounded-full filter blur-[80px] sm:blur-[120px] opacity-10 sm:opacity-20 sm:animate-pulse"></div>
+                        <div className="absolute bottom-[10%] right-[-5%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-[#FF68A8] rounded-full filter blur-[60px] sm:blur-[100px] opacity-5 sm:opacity-10"></div>
                     </div>
 
                     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
@@ -298,21 +298,18 @@ export default function UniRizzLanding() {
                                     {PHONE_CAROUSEL_IMAGES.map((img, index) => (
                                         <div
                                             key={img.id}
-                                            className={`absolute inset-0 transition-opacity duration-500 ease-in-out flex items-center justify-center bg-[#050614] ${index === carouselIndex ? 'opacity-100' : 'opacity-0'}`}
+                                            style={{ display: Math.abs(index - carouselIndex) <= 1 ? 'flex' : 'none' }}
+                                            className={`absolute inset-0 transition-[opacity,transform] duration-700 ease-in-out flex items-center justify-center bg-[#050614] will-change-[opacity,transform] ${index === carouselIndex ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 z-0 pointer-events-none'}`}
                                         >
-                                            {/* Using Placeholder Div if image fails or for demo */}
-                                            <div className="text-center p-4">
-                                                <p className="text-xs text-gray-500 mb-2">PLACEHOLDER FOR</p>
-                                                <p className="text-lg font-bold text-[#7C2BFF]">{img.src}</p>
-                                                <p className="text-xs text-gray-400 mt-2">{img.alt}</p>
-                                            </div>
                                             {/* Real Image Tag - Wired for replacing with assets */}
-                                            <img
+                                            <Image
                                                 src={img.src}
                                                 alt={img.alt}
-                                                className="absolute inset-0 w-full h-full object-cover"
-                                                loading="lazy"
-                                                onError={(e) => e.target.style.display = 'none'}
+                                                fill
+                                                className="object-cover"
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                priority={index === 0}
+                                                loading={index === 0 ? "eager" : "lazy"}
                                             />
                                         </div>
                                     ))}

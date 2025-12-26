@@ -31,26 +31,35 @@ export function FAQ() {
             <div className="container mx-auto px-4 md:px-6 max-w-3xl">
                 <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">FAQ</h2>
 
-                <div className="space-y-4">
+                <div className="space-y-6">
                     {faqs.map((faq, index) => (
                         <div
                             key={index}
-                            className="border border-border rounded-lg overflow-hidden bg-card"
+                            className={cn(
+                                "border border-border/50 rounded-2xl overflow-hidden bg-card/50 backdrop-blur-sm transition-all duration-300 reveal",
+                                openIndex === index ? "ring-2 ring-primary/20 bg-card" : "hover:bg-muted/30"
+                            )}
                         >
                             <button
-                                className="w-full flex items-center justify-between p-6 text-left font-medium hover:bg-muted/50 transition-colors"
+                                className="w-full flex items-center justify-between p-6 text-left font-bold text-lg transition-colors"
                                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                             >
-                                {faq.question}
-                                {openIndex === index ? <ChevronUp className="w-5 h-5 text-muted-foreground" /> : <ChevronDown className="w-5 h-5 text-muted-foreground" />}
+                                <span className={cn(openIndex === index && "text-primary transition-colors")}>
+                                    {faq.question}
+                                </span>
+                                {openIndex === index ? (
+                                    <ChevronUp className="w-6 h-6 text-primary transition-all rotate-180" />
+                                ) : (
+                                    <ChevronDown className="w-6 h-6 text-muted-foreground" />
+                                )}
                             </button>
                             <div
                                 className={cn(
-                                    "overflow-hidden transition-all duration-300 ease-in-out",
-                                    openIndex === index ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
+                                    "overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]",
+                                    openIndex === index ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                                 )}
                             >
-                                <div className="p-6 pt-0 text-muted-foreground">
+                                <div className="p-6 pt-0 text-muted-foreground leading-relaxed">
                                     {faq.answer}
                                 </div>
                             </div>
