@@ -33,7 +33,7 @@ const cards = [
         title: "Campus Snaps",
         description:
             "Fun, ongoing changes in college. From boring labs to fights, share any snap.",
-        image: "/assets/campus-snap.jpg",
+        image: "/assets/campus-snap2.png",
     },
 ];
 

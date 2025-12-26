@@ -81,8 +81,8 @@ const PHONE_CAROUSEL_IMAGES = [
     { id: 1, src: "/assets/unirizz.png", alt: "UniRizz Main Screen" },
     { id: 2, src: "/assets/club.jpg", alt: "UniRizz Clubs" },
     { id: 3, src: "/assets/ratings.png", alt: "UniRizz Ratings" },
-    { id: 4, src: "/assets/dating.png", alt: "UniRizz Dating" },
-    { id: 5, src: "/assets/campus-snap.jpg", alt: "UniRizz Campus Snaps" },
+    { id: 4, src: "/assets/dating-v2.png", alt: "UniRizz Dating" },
+    { id: 5, src: "/assets/campus-snap2.png", alt: "UniRizz Campus Snaps" },
 ];
 
 const FAQS = [
