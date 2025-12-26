@@ -65,9 +65,11 @@ export function Navbar() {
                             <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                             <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                         </Button>
-                        <Button className="bg-primary text-white hover:bg-primary/90">
-                            Get the App
-                        </Button>
+                        <Link href="#download">
+                            <Button className="bg-primary text-white hover:bg-primary/90">
+                                Get the App
+                            </Button>
+                        </Link>
                     </div>
                 </div>
 
@@ -109,9 +111,11 @@ export function Navbar() {
                             {link.name}
                         </Link>
                     ))}
-                    <Button className="w-full mt-2" onClick={() => setIsMobileMenuOpen(false)}>
-                        Get the App
-                    </Button>
+                    <Link href="#download" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Button className="w-full mt-2">
+                            Get the App
+                        </Button>
+                    </Link>
                 </div>
             )}
         </nav>

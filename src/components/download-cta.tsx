@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 
 export function DownloadCTA() {
     return (
-        <section className="py-32 bg-gradient-to-br from-[#020617] via-primary to-[#020617] text-white text-center relative overflow-hidden">
+        <section id="download" className="py-32 bg-gradient-to-br from-[#020617] via-primary to-[#020617] text-white text-center relative overflow-hidden">
             {/* Decorative particles/glows could go here */}
             <div className="container mx-auto px-4 md:px-6 relative z-10 reveal">
                 <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Ready to take over your campus?</h2>
