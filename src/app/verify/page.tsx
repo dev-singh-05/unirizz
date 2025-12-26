@@ -6,14 +6,6 @@ import { useEffect, useState } from "react"
 
 // Configuration - Update these with your actual values
 const APP_CONFIG = {
-    // Your Play Store app link
-    playStoreUrl: "https://play.google.com/store/apps/details?id=com.unirizz.app",
-    // Your App Store app link
-    appleStoreUrl: "https://apps.apple.com/in/app/unirizz/id6756393666",
-    // Your app's package name for Android
-    packageName: "com.unirizz.app",
-    // Your custom URL scheme (e.g., unirizz://)
-    appScheme: "unirizz",
     // Website URL
     websiteUrl: "/",
 }
@@ -26,29 +18,7 @@ export default function VerifyPage() {
         setIsVisible(true)
     }, [])
 
-    const handleOpenApp = () => {
-        // Create Android intent URL with Play Store fallback
-        const intentUrl = `intent://verified#Intent;scheme=${APP_CONFIG.appScheme};package=${APP_CONFIG.packageName};S.browser_fallback_url=${encodeURIComponent(APP_CONFIG.playStoreUrl)};end`
 
-        // Try to detect platform
-        const userAgent = navigator.userAgent.toLowerCase()
-        const isAndroid = userAgent.includes("android")
-        const isIOS = /iphone|ipad|ipod/.test(userAgent)
-
-        if (isAndroid) {
-            window.location.href = intentUrl
-        } else if (isIOS) {
-            // Try custom scheme, then fall back to App Store
-            window.location.href = `${APP_CONFIG.appScheme}://verified`
-            setTimeout(() => {
-                // If app didn't open, redirect to App Store
-                window.location.href = APP_CONFIG.appleStoreUrl
-            }, 2000)
-        } else {
-            // Desktop - redirect to Play Store
-            window.location.href = APP_CONFIG.playStoreUrl
-        }
-    }
 
     const handleGoToWebsite = () => {
         window.location.href = APP_CONFIG.websiteUrl
@@ -114,20 +84,10 @@ export default function VerifyPage() {
                     {/* Action buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md mt-4">
                         {/* Continue to App Button */}
-                        <Button
-                            onClick={handleOpenApp}
-                            size="lg"
-                            className="flex-1 h-14 px-8 text-lg gap-3 bg-gradient-to-r from-primary to-accent text-white hover:opacity-90 rounded-full shadow-lg shadow-primary/30 transition-all hover:scale-105"
-                        >
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
-                                className="w-6 h-6"
-                            >
-                                <path d="M5,20.5V3.5C5,2.91 5.34,2.5 5.75,2.5C5.96,2.5 6.17,2.6 6.32,2.79L18.96,12L6.34,21.21C6.18,21.39 5.96,21.5 5.75,21.5C5.34,21.5 5,21.1 5,20.5Z" />
-                            </svg>
-                            Open App
-                        </Button>
+                        {/* Verification Message */}
+                        <div className="flex-1 min-h-14 px-8 py-4 text-lg font-semibold bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 rounded-2xl flex items-center justify-center text-center leading-tight">
+                            U r verified, and now u can open the app and enjoy!
+                        </div>
 
                         {/* Continue to Website Button */}
                         <Button
@@ -153,16 +113,7 @@ export default function VerifyPage() {
                         </Button>
                     </div>
 
-                    {/* Helper text */}
-                    <p className="text-sm text-muted-foreground mt-2">
-                        Don&apos;t have the app?{" "}
-                        <button
-                            onClick={handleOpenApp}
-                            className="text-primary hover:underline font-medium"
-                        >
-                            Download from Play Store
-                        </button>
-                    </p>
+
                 </div>
             </div>
         </main>
