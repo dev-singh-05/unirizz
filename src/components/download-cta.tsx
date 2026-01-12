@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function DownloadCTA() {
     return (
@@ -9,9 +10,11 @@ export function DownloadCTA() {
                 <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto mb-12">Be one of the first to bring UniRizz to your college.</p>
 
                 <div className="flex flex-col sm:flex-row justify-center gap-6">
-                    <Button size="lg" className="h-16 px-10 text-xl font-bold bg-white text-primary hover:bg-white/90 rounded-full shadow-2xl hover:scale-105 transition-all">
-                        Google Play
-                    </Button>
+                    <Link href="https://github.com/dev-singh-05/unirizz-app-android/releases/download/v1.0.3/application-6ff78b77-3418-4c23-ace4-5be264411045.apk">
+                        <Button size="lg" className="h-16 px-10 text-xl font-bold bg-white text-primary hover:bg-white/90 rounded-full shadow-2xl hover:scale-105 transition-all">
+                            Google Play
+                        </Button>
+                    </Link>
                     <a href="https://apps.apple.com/in/app/unirizz/id6756393666" target="_blank" rel="noopener noreferrer">
                         <Button size="lg" variant="outline" className="h-16 px-10 text-xl font-bold border-white/20 text-white hover:bg-white/10 rounded-full hover:scale-105 transition-all">
                             App Store
