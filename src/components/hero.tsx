@@ -34,7 +34,7 @@ export function Hero() {
                                     App Store
                                 </Button>
                             </a>
-                            <Link href="https://github.com/dev-singh-05/unirizz-app-android/releases/download/v1.0.3/application-6ff78b77-3418-4c23-ace4-5be264411045.apk">
+                            <Link href="https://github.com/dev-singh-05/unirizz-app-android/releases/download/v1.0.3/application-0b44b334-7307-4e52-a44c-af22d37818e9.apk">
                                 <Button size="lg" variant="outline" className="h-14 px-8 cursor-pointer text-lg gap-2 border-primary/20 bg-primary/5 hover:bg-primary/10 rounded-full w-full sm:w-auto hover:transform hover:-translate-y-1 transition-all">
                                     <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                                         <path d="M5,20.5V3.5C5,2.91 5.34,2.5 5.75,2.5C5.96,2.5 6.17,2.6 6.32,2.79L18.96,12L6.34,21.21C6.18,21.39 5.96,21.5 5.75,21.5C5.34,21.5 5,21.1 5,20.5M7,4.87V19.13L16.8,12L7,4.87M18.82,12L19.5,12.5L20.5,13.25L21.5,14L22.5,14.75L23.5,15.5L18.82,12Z" />
