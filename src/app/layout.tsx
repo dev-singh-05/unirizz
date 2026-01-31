@@ -9,7 +9,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "UniRizz - Campus-Exclusive Social App",
+  title: "UniRizz - Medicaps-Exclusive Social App",
   description: "Join clubs, rate peers, and match with people from your college.",
 };
 

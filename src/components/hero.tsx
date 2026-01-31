@@ -14,11 +14,11 @@ export function Hero() {
                     {/* Text Content */}
                     <div className="flex flex-col gap-6 items-center lg:items-start text-center lg:text-left">
                         <div className="inline-flex items-center rounded-full border border-primary/50 bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-                            Campus-Exclusive • For Students Only
+                            Medicaps-Exclusive • For Students Only
                         </div>
 
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] md:leading-[1.1] lg:leading-[1.1] text-foreground">
-                            UniRizz — Your Entire <span className="text-primary italic">Campus</span>, In Your Pocket.
+                            UniRizz — <span className="text-yellow-400">Medicaps</span> <span className="text-primary italic">Exclusive</span>, Social App  .
                         </h1>
 
                         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
