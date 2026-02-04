@@ -10,7 +10,7 @@ export function DownloadCTA() {
                 <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto mb-12">Be one of the first to bring UniRizz to your college.</p>
 
                 <div className="flex flex-col sm:flex-row justify-center gap-6">
-                    <Link href="https://github.com/dev-singh-05/unirizz-app-android/releases/download/v1.0.3/application-0b44b334-7307-4e52-a44c-af22d37818e9.apk">
+                    <Link href="https://github.com/dev-singh-05/unirizz/releases/latest/download/application-014b156e-8c7c-4666-bd14-0a84af3439bb.apk">
                         <Button size="lg" className="h-16 px-10 text-xl font-bold bg-white text-primary hover:bg-white/90 rounded-full shadow-2xl hover:scale-105 transition-all">
                             Google Play
                         </Button>
